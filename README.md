@@ -340,3 +340,45 @@ Existen varias formas adicionales de formatear una fecha en JavaScript:
     const date = new Date();
     console.log(date[@@toPrimitive]()); // Ejemplo de salida: Sat Feb 13 2024 06:30:45 GMT+0800 (Hora de Malasia)
     ```
+
+# Ejemplos
+
+## Distintas maneras de crear un objeto Date
+
+Los siguientes ejemplos muestran distintas maneras de crear fechas en JavaScript:
+
+- **Ejemplo 1:** Utilizando la fecha actual del sistema:
+  ```javascript
+  const fechaActual = new Date();
+  console.log(fechaActual);
+  ```
+
+- **Ejemplo 2:** Creando una fecha específica con año, mes y día:
+  ```javascript
+  const fechaEspecifica = new Date(2024, 1, 13); // El mes es 0-indexado, por lo que 1 representa febrero
+  console.log(fechaEspecifica);
+  ```
+
+- **Ejemplo 3:** Creando una fecha a partir de una cadena de texto:
+  ```javascript
+  const fechaDesdeString = new Date("2024-02-13T07:55:40");
+  console.log(fechaDesdeString);
+  ```
+
+- **Ejemplo 4:** Creando una fecha utilizando milisegundos desde el Epoch (1 de enero de 1970):
+  ```javascript
+  const fechaDesdeEpoch = new Date(1707828940355);
+  console.log(fechaDesdeEpoch);
+  ```
+
+- **Ejemplo 5:** Obtener la hora actual en UTC y ajustarla a la zona horaria de Colombia (GMT-5):
+  ```javascript
+  const nowUTC = new Date();
+  const horaColombia = new Date(nowUTC.toLocaleString("en-US", {timeZone: "America/Bogota"}));
+  const hora = horaColombia.getHours();
+  const minutos = horaColombia.getMinutes();
+  const segundos = horaColombia.getSeconds();
+  console.log(`${hora}:${minutos}:${segundos}`);
+  ```
+
+Estos ejemplos proporcionan diferentes formas de crear objetos `Date` en JavaScript para adaptarse a diversas necesidades de tu aplicación.
